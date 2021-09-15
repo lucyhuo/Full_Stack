@@ -168,10 +168,9 @@ SELECT ProductSubCategoryID
       , LEFT([Name],35) AS [Name]
       , Color, ListPrice 
 FROM Production.Product
-WHERE ProductSubCategoryID = 1
-	or (ListPrice BETWEEN 1000 AND 2000) 
-	or (Color not in ('Red','Black')  and ListPrice < 1000) 
-	or (Color not in ('Red','Black')  and ListPrice > 2000) 
+WHERE Color IN ('Red','Black') 
+      AND ListPrice BETWEEN 1000 AND 2000 
+      AND ProductSubCategoryID = 1
 ORDER BY ProductID
 
 
