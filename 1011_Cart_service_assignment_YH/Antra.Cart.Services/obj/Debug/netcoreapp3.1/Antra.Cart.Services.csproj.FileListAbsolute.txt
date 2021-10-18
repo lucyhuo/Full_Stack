@@ -1,0 +1,15 @@
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Services.deps.json
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Services.dll
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Services.pdb
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Data.Models.dll
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Data.Repository.dll
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Data.Repository.pdb
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\bin\Debug\netcoreapp3.1\Antra.Cart.Data.Models.pdb
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.csproj.AssemblyReference.cache
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.AssemblyInfoInputs.cache
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.AssemblyInfo.cs
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.csproj.CoreCompileInputs.cache
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.csproj.CopyComplete
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.dll
+C:\Users\Yanghe Huo\source\repos\Cart\Antra.Cart.Services\obj\Debug\netcoreapp3.1\Antra.Cart.Services.pdb
