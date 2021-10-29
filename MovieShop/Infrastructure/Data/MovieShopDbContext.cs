@@ -111,7 +111,7 @@ namespace Infrastructure.Data
             builder.HasKey(m => new { m.MovieId, m.CastId, m.Character });
             builder.Property(m => m.Character).HasMaxLength(450);
 
-            builder.HasOne(m => m.Movie).WithMany(m => m.CastForMovie).HasForeignKey(m => m.MovieId);
+            builder.HasOne(m => m.Movie).WithMany(m => m.CastsForMovie).HasForeignKey(m => m.MovieId);
             builder.HasOne(x => x.Cast).WithMany(x => x.MovieForCast).HasForeignKey(x => x.CastId);
         }
 
@@ -122,7 +122,7 @@ namespace Infrastructure.Data
             builder.Property(m =>  m.Department).HasMaxLength(128);
             builder.Property(m => m.Job).HasMaxLength(128);
 
-            builder.HasOne(m => m.Movie).WithMany(m => m.CrewForMovie).HasForeignKey(m => m.MovieId);
+            builder.HasOne(m => m.Movie).WithMany(m => m.CrewsForMovie).HasForeignKey(m => m.MovieId);
             builder.HasOne(x => x.Crew).WithMany(x => x.MovieForCrew).HasForeignKey(x => x.CrewId);
 
         }

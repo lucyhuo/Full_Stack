@@ -430,7 +430,7 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("ApplicationCore.Entities.Movie", "Movie")
-                        .WithMany("CastForMovie")
+                        .WithMany("CastsForMovie")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -449,7 +449,7 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.HasOne("ApplicationCore.Entities.Movie", "Movie")
-                        .WithMany("CrewForMovie")
+                        .WithMany("CrewsForMovie")
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -559,9 +559,9 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("ApplicationCore.Entities.Movie", b =>
                 {
-                    b.Navigation("CastForMovie");
+                    b.Navigation("CastsForMovie");
 
-                    b.Navigation("CrewForMovie");
+                    b.Navigation("CrewsForMovie");
 
                     b.Navigation("Favorites");
 

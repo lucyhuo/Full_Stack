@@ -29,14 +29,12 @@ namespace MovieShopMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //IOC Inversion of Control 
+            //IOC Inversion of Control, configurations are used across multiple controllers
             services.AddControllersWithViews();
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IMovieRepository, MovieRepository>();
-
-
-
-
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>(); // use this in the account controller 
 
             // inject connection string from appsetting.json to MovieShopDbContext
             services.AddDbContext<MovieShopDbContext>(

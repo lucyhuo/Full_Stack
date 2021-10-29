@@ -35,8 +35,8 @@ namespace ApplicationCore.Entities
         // Navigation property 
         public ICollection<Trailer> Trailers { get; set; }
         public ICollection<MovieGenre> GenresForMovie { get; set; }
-        public ICollection<MovieCrew>CrewForMovie { get; set; }
-        public ICollection<MovieCast> CastForMovie { get; set; }
+        public ICollection<MovieCrew>CrewsForMovie { get; set; }
+        public ICollection<MovieCast> CastsForMovie { get; set; }
         public ICollection<Favorite> Favorites { get; set; }
         public ICollection<Purchase> Purchases { get; set; }
         public ICollection<Review> ReviewsForMovie { get; set; }
