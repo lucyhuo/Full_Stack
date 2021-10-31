@@ -22,14 +22,14 @@ namespace Infrastructure.Repositories
 
         public async Task<User> AddUser(User user)
         {
-            await _dbContext.User.AddAsync(user);
+            await _dbContext.Users.AddAsync(user);
             await _dbContext.SaveChangesAsync();
             return user;
         }
 
         public async Task<User> GetUserByEmail(string email)
         {
-            var user = await _dbContext.User.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
             return user;
         }
 

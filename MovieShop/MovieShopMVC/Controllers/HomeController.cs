@@ -15,10 +15,10 @@ namespace MovieShopMVC.Controllers
     public class HomeController : Controller
     {
         private readonly IMovieService _movieService;
-        private readonly int x;
+        //private readonly int x;
         public HomeController(IMovieService movieService)
         {
-            x = 40;
+            // x = 40;
             _movieService = movieService;
         }
 

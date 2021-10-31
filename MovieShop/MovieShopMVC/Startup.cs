@@ -3,6 +3,7 @@ using ApplicationCore.ServiceInterfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,15 +32,29 @@ namespace MovieShopMVC
         {
             //IOC Inversion of Control, configurations are used across multiple controllers
             services.AddControllersWithViews();
-            services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IMovieRepository, MovieRepository>();
+            services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>(); // use this in the account controller 
+            services.AddScoped<ICurrentUserRepository, CurrentUserRepository>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddHttpContextAccessor();
+
 
             // inject connection string from appsetting.json to MovieShopDbContext
             services.AddDbContext<MovieShopDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("MovieShopBdConnection"))
                 );
+
+            // inject cookies 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.Cookie.Name = "MovieShopAuthCookie";
+                    options.ExpireTimeSpan = TimeSpan.FromHours(2); // cookie expires in 2 hours from the moment you create it 
+                    options.LoginPath = "/account/login";
+
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +75,7 @@ namespace MovieShopMVC
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -67,7 +83,9 @@ namespace MovieShopMVC
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            }
+            );
+
         }
     }
 }
