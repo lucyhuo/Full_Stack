@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.RepositoryInterfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IAsyncRepository<User>
     {
         Task<User> GetUserByEmail(string email);
-        Task<User> AddUser(User user);
-
+        //Task<User> AddUser(User user);
+        Task<IEnumerable<Review>> GetReviewsByUser(int userId);
     }
 }

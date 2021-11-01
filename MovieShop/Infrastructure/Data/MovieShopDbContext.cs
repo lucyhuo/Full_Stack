@@ -24,7 +24,7 @@ namespace Infrastructure.Data
         public DbSet<Trailer> Trailers { get; set; }
         public DbSet<Cast> Casts { get; set; }
         public DbSet<MovieCast> MovieCasts { get; set; }
-        public DbSet<Role> Role { get; set; }
+        //public DbSet<Role> Role { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
         public DbSet<Favorite> Favorites { get; set; }

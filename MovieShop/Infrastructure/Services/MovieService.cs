@@ -18,6 +18,31 @@ namespace Infrastructure.Services
             _movieRepository = movieRepository;
         }
 
+        // GetTop30RevenueMovies()
+        public async Task<List<MovieCardResponseModel>> GetTop30RevenueMovies()
+        {
+            // method should call movie repository and get their data from movie table 
+            //var movieCards = new List<MovieCardResponseModel> {
+            //     new MovieCardResponseModel { Id=1, Title = "Inception", PosterUrl="https://image.tmdb.org/t/p/w342//9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" },
+            //     new MovieCardResponseModel{Id = 3, Title="The Dark Knight", PosterUrl="https://image.tmdb.org/t/p/w342//qJ2tW6WMUDux911r6m7haRef0WH.jpg" },
+            //     new MovieCardResponseModel { Id =2, Title="Interstellar", PosterUrl ="https://image.tmdb.org/t/p/w342//gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"}
+            //};
+            var movies = await _movieRepository.GetTop30RevenueMovies();
+
+            var movieCards = new List<MovieCardResponseModel>();
+            foreach (var movie in movies)
+            {
+                movieCards.Add(new MovieCardResponseModel
+                {
+                    Id = movie.Id,
+                    PosterUrl = movie.PosterUrl,
+                    Title = movie.Title
+                });
+            }
+
+            return movieCards;
+        }
+
         public async Task<MovieDetailsResponseModel> GetMovieDetails(int id)
         {
             var movie = await _movieRepository.GetMovieById(id);
@@ -53,34 +78,6 @@ namespace Infrastructure.Services
             }
             return movieDetails;
         }
-
-
-
-
-
-
-
-        // GetTop30RevenueMovies()
-        public async Task<List<MovieCardResponseModel>> GetTop30RevenueMovies()
-        {
-            // method should call movie repository and get their data from movie table 
-            //var movieCards = new List<MovieCardResponseModel> {
-            //     new MovieCardResponseModel { Id=1, Title = "Inception", PosterUrl="https://image.tmdb.org/t/p/w342//9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" },
-            //     new MovieCardResponseModel{Id = 3, Title="The Dark Knight", PosterUrl="https://image.tmdb.org/t/p/w342//qJ2tW6WMUDux911r6m7haRef0WH.jpg" },
-            //     new MovieCardResponseModel { Id =2, Title="Interstellar", PosterUrl ="https://image.tmdb.org/t/p/w342//gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"}
-        //};
-            var movies = await _movieRepository.GetTop30RevenueMovies();
-
-            var movieCards = new List<MovieCardResponseModel>();
-            foreach (var movie in movies)
-            {
-                movieCards.Add(new MovieCardResponseModel
-                {
-                    Id= movie.Id, PosterUrl = movie.PosterUrl, Title = movie.Title
-                });
-            }
-
-            return movieCards;
-        }
+        
     }
 }

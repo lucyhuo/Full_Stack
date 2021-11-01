@@ -20,10 +20,27 @@ namespace ApplicationCore.ServiceInterfaces
         //public IEnumerable<string> Roles { get; }
         //public bool IsAdmin { get;  }
 
-
+        // could delete later
         Task<List<MovieCardResponseModel>> GetCurrentUserPurchasedMovies(int id);
         Task<List<MovieCardResponseModel>> GetCurrentUserFavoritedMovies(int id);
         Task<List<MovieCardResponseModel>> GetCurrentUserReviewedMovies(int id);
+
+
+        Task AddFavorite(FavoriteRequestModel favoriteRequest);
+        Task RemoveFavorite(FavoriteRequestModel favoriteRequest);
+        Task<FavoriteResponseModel> GetAllFavoritesForUser(int id);
+
+        Task<bool> PurchaseMovie(PurchaseRequestModel purchaseRequest, int userId);
+        Task<bool> IsMoviePurchased(PurchaseRequestModel purchaseRequest, int userId);
+        Task<PurchaseDetailsResponseModel> GetPurchasesDetails(int userId, int movieId);
+        Task<PurchaseResponseModel> GetAllPurchasesForUser(int id);
+
+
+        Task AddMovieReview(ReviewRequestModel reviewRequest);
+        Task UpdateMovieReview(ReviewRequestModel reviewRequest);
+        Task DeleteMovieReview(int userId, int movieId);
+        Task<ReviewResponseModel> GetAllReviewsByUser(int id);
+
     }
 }
 

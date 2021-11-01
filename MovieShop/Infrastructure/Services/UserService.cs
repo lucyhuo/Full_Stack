@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
 using ApplicationCore.Entities;
+using Infrastructure.Repositories;
 
 namespace Infrastructure.Services
 {
@@ -50,32 +51,9 @@ namespace Infrastructure.Services
             };
 
             // use EF to save this use in the user table 
-            var newUser = await _userRepository.AddUser(user);
+            //var newUser = await _userRepository.AddUser(user);
+            var newUser = await _userRepository.Add(user);
             return newUser.Id;
-
-        }
-
-
-        private string GetSalt()
-        {
-            byte[] randomBytes = new byte[128 / 8];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(randomBytes);
-            }
-            return Convert.ToBase64String(randomBytes);
-        }
-
-        
-        private string GetHashedPassword(string pwd, string salt)
-        {
-            var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password: pwd,
-                salt: Convert.FromBase64String(salt),
-                prf: KeyDerivationPrf.HMACSHA512,
-                iterationCount: 10000,
-                numBytesRequested: 256 / 8));
-            return hashed;
 
         }
 
@@ -107,5 +85,33 @@ namespace Infrastructure.Services
             return null;
 
         }
+
+
+
+
+
+        private string GetSalt()
+        {
+            byte[] randomBytes = new byte[128 / 8];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(randomBytes);
+            }
+            return Convert.ToBase64String(randomBytes);
+        }
+
+
+        private string GetHashedPassword(string pwd, string salt)
+        {
+            var hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                password: pwd,
+                salt: Convert.FromBase64String(salt),
+                prf: KeyDerivationPrf.HMACSHA512,
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
+            return hashed;
+
+        }
+
     }
 }
