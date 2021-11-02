@@ -46,18 +46,17 @@ namespace MovieShopMVC.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> PurhcaseDetails(int movieId)
+        public async Task<IActionResult> PurchaseDetails(int movieId)
         {
             var userId = _currentUserService.UserId;
             var purchaseDetails = await _currentUserService.GetPurchasesDetails(userId, movieId);
-            return View(purchaseDetails);
+            return View(purchaseDetails); // return a partial view, put the partial view inside the popup (bootstrap model) 
         }
 
         [HttpGet]
         // filters in ASP.NET
         [Authorize] // add role here and do the authorize 
         public async Task<IActionResult> Purchases() //id:12 
-        
         {
 
             //var userId = Convert.ToInt32(HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value);
@@ -65,7 +64,7 @@ namespace MovieShopMVC.Controllers
 
             // call userservice that will give list of moviesCard models that this user purchased 
             // purchase repository, dbContext.Purchase.where(u => u.UserId == id) 
-            var movieCards = await _currentUserService.GetAllPurchasesForUser(userId);
+            var purchaseDetails = await _currentUserService.GetAllPurchasesForUser(userId);
 
 
             // get all the movies purchased by user => list<MovieCard>
@@ -78,7 +77,7 @@ namespace MovieShopMVC.Controllers
             //    return View();
             //}
             //RedirectToAction("Login", "Account");
-            return View(movieCards);
+            return View(purchaseDetails);
         }
 
 

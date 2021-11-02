@@ -18,10 +18,10 @@ namespace MovieShopMVC.Controllers
 
         // localhost:2345/movies/details/343
         [HttpGet]
-        public async Task<IActionResult> Details(int id)
+        public async Task<IActionResult> Details(int movieId)
         {
             
-            var movieDetails = await _movieService.GetMovieDetails(id);
+            var movieDetails = await _movieService.GetMovieDetails(movieId);
             return View(movieDetails);
         }
     }

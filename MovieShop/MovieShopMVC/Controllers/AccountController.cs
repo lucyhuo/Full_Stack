@@ -57,7 +57,6 @@ namespace MovieShopMVC.Controllers
             {
                 // username/password is wrong 
                 // show message to user saying email/password is wrong 
-
                 return View();
 
             }

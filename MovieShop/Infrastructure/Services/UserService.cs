@@ -47,7 +47,6 @@ namespace Infrastructure.Services
                 Salt = salt,
                 HashedPassword = hashedPassword,
                 DateofBirth = requestModel.DateOfBirth
-
             };
 
             // use EF to save this use in the user table 

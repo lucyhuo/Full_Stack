@@ -138,7 +138,6 @@ namespace Infrastructure.Services
         public async Task<PurchaseDetailsResponseModel> GetPurchasesDetails(int userId, int movieId)
         {
             var purchaseDetail = await _purchaseRepository.GetPurchaseDetails(userId, movieId);
-
             var purchaseDetailsResponseModel = new PurchaseDetailsResponseModel
             {
                 UserId = userId,
@@ -151,6 +150,7 @@ namespace Infrastructure.Services
             };
 
             return purchaseDetailsResponseModel;
+
         }
 
 

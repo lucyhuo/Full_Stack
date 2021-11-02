@@ -8,6 +8,10 @@ namespace ApplicationCore.Entities
 {
     public class Purchase
     {
+        public Purchase()
+        {
+            MovieDetail = new Movie();
+        }
         public int Id { get; set; }
         public int UserId { get; set; }
         public Guid PurchaseNumber { get; set; }
