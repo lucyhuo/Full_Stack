@@ -15,11 +15,16 @@ namespace Infrastructure.Services
     public class CurrentUserService : ICurrentUserService
     {
         protected readonly ICurrentUserRepository _currentUserRepository;
+        protected readonly IPurchaseRepository _purchaseRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public CurrentUserService(ICurrentUserRepository currentUserRepository, IHttpContextAccessor httpContextAccessor)
+       
+
+        public CurrentUserService(ICurrentUserRepository currentUserRepository, IHttpContextAccessor httpContextAccessor, IPurchaseRepository purchaseRepository)
         {
             _currentUserRepository = currentUserRepository;
             _httpContextAccessor = httpContextAccessor;
+            _purchaseRepository = purchaseRepository;
+        
         }
 
         // we need to use HttpContext class to get all this information from HttpContext User Object
@@ -45,53 +50,109 @@ namespace Infrastructure.Services
 
 
 
-        public async Task<List<MovieCardResponseModel>> GetCurrentUserPurchasedMovies(int id)
+        //public async Task<List<MovieCardResponseModel>> GetCurrentUserPurchasedMovies(int id)
+        //{
+            
+        //}
+
+        //public async Task<List<MovieCardResponseModel>> GetCurrentUserFavoritedMovies(int id)
+        //{
+
+        //    var movies = await _currentUserRepository.GetUserFavoritedMovies(id);
+        //    if (movies == null)
+        //    {
+        //        throw new Exception($"No favorited movie found for this User {id}");
+        //    }
+        //    var movieCards = new List<MovieCardResponseModel>();
+        //    foreach (var movie in movies)
+        //    {
+        //        movieCards.Add(new MovieCardResponseModel
+        //        {
+        //            Id = movie.Id,
+        //            PosterUrl = movie.PosterUrl,
+        //            Title = movie.Title
+        //        });
+        //    }
+
+        //    return movieCards;
+        //}
+
+        //public  Task<List<MovieCardResponseModel>> GetCurrentUserReviewedMovies(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+
+        public async Task<PurchaseResponseModel> GetAllPurchasesForUser(int userId)
         {
-            var movies = await _currentUserRepository.GetUserPurchasedMovies(id);
-            if (movies == null)
+            var purchases = await _purchaseRepository.GetAllPurchasesForUser(userId);
+
+            if (purchases == null)
             {
-                throw new Exception($"No favorited movie found for this User {id}");
+                throw new Exception($"No movie has been purchased by this user {userId}");
             }
-            var movieCards = new List<MovieCardResponseModel>();
-            foreach (var movie in movies)
+
+            var purchasedMovies = new List<MovieCardResponseModel>();
+            foreach (var purchase in purchases)
             {
-                movieCards.Add(new MovieCardResponseModel
+                //var movie = await _movieRepository.GetMovieById(purchase.MovieId);
+                var movieCard = new MovieCardResponseModel
                 {
-                    Id = movie.Id,
-                    PosterUrl = movie.PosterUrl,
-                    Title = movie.Title
-                });
+                    Id = purchase.MovieId,
+                    Title = purchase.MovieDetail.Title,
+                    PosterUrl = purchase.MovieDetail.PosterUrl
+                };
+                purchasedMovies.Add(movieCard);
             }
 
-            return movieCards;
+            var purchaseResponse = new PurchaseResponseModel
+            {
+                PurchasedMovies = purchasedMovies,
+                TotalMoviesPurchased = purchases.Count()
+
+            };
+
+            return purchaseResponse;
         }
 
-        public async Task<List<MovieCardResponseModel>> GetCurrentUserFavoritedMovies(int id)
+        public async Task<bool> PurchaseMovie(PurchaseRequestModel purchaseRequest, int userId)
         {
 
-            var movies = await _currentUserRepository.GetUserFavoritedMovies(id);
-            if (movies == null)
+            var purchase = new Purchase
             {
-                throw new Exception($"No favorited movie found for this User {id}");
-            }
-            var movieCards = new List<MovieCardResponseModel>();
-            foreach (var movie in movies)
-            {
-                movieCards.Add(new MovieCardResponseModel
-                {
-                    Id = movie.Id,
-                    PosterUrl = movie.PosterUrl,
-                    Title = movie.Title
-                });
-            }
+                UserId = userId,
+                PurchaseNumber = purchaseRequest.PurchaseNumber,
+                PurchaseDateTime = purchaseRequest.PurchaseDateTime,
+                MovieId = purchaseRequest.MovieId
+            };
+            var newPurchase = await _purchaseRepository.Add(purchase);
+            return newPurchase != null;
+    }
 
-            return movieCards;
-        }
-
-        public  Task<List<MovieCardResponseModel>> GetCurrentUserReviewedMovies(int id)
+        public async Task<bool> IsMoviePurchased(PurchaseRequestModel purchaseRequest, int userId)
         {
-            throw new NotImplementedException();
+            var isPurchased = await _purchaseRepository.GetPurchaseDetails(userId, purchaseRequest.MovieId);
+            return isPurchased != null;
         }
+
+        public async Task<PurchaseDetailsResponseModel> GetPurchasesDetails(int userId, int movieId)
+        {
+            var purchaseDetail = await _purchaseRepository.GetPurchaseDetails(userId, movieId);
+
+            var purchaseDetailsResponseModel = new PurchaseDetailsResponseModel
+            {
+                UserId = userId,
+                MovieId = movieId,
+                Title = purchaseDetail.MovieDetail.Title,
+                PosterUrl = purchaseDetail.MovieDetail.PosterUrl,
+                ReleaseDate = purchaseDetail.MovieDetail.ReleaseDate,
+                PurchaseDateTime = purchaseDetail.PurchaseDateTime,
+                TotalPrice = purchaseDetail.TotalPrice
+            };
+
+            return purchaseDetailsResponseModel;
+        }
+
 
 
 
@@ -110,25 +171,7 @@ namespace Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> PurchaseMovie(PurchaseRequestModel purchaseRequest, int userId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<bool> IsMoviePurchased(PurchaseRequestModel purchaseRequest, int userId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<PurchaseResponseModel> GetAllPurchasesForUser(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<PurchaseDetailsResponseModel> GetPurchasesDetails(int userId, int movieId)
-        {
-            throw new NotImplementedException();
-        }
 
         public async Task AddMovieReview(ReviewRequestModel reviewRequest)
         {
@@ -145,7 +188,7 @@ namespace Infrastructure.Services
             throw new NotImplementedException();
         }
 
-        public async Task<UserReviewResponseModel> GetAllReviewsByUser(int id)
+        public async Task<ReviewResponseModel> GetAllReviewsByUser(int id)
         {
             throw new NotImplementedException();
         }

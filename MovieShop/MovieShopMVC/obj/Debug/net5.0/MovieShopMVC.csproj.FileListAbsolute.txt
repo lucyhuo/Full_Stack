@@ -157,3 +157,4 @@ C:\Users\Yanghe Huo\source\repos\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\V
 C:\Users\Yanghe Huo\source\repos\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Purchases.cshtml.g.cs
 C:\Users\Yanghe Huo\source\repos\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\Shared\_LoginInfoPartial.cshtml.g.cs
 C:\Users\Yanghe Huo\source\repos\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\Favorites.cshtml.g.cs
+C:\Users\Yanghe Huo\source\repos\MovieShop\MovieShopMVC\obj\Debug\net5.0\Razor\Views\User\PurchaseDetails.cshtml.g.cs

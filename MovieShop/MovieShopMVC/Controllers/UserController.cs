@@ -1,4 +1,5 @@
-﻿using ApplicationCore.ServiceInterfaces;
+﻿using ApplicationCore.Models;
+using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,6 +14,7 @@ namespace MovieShopMVC.Controllers
     public class UserController : Controller
     {
         protected readonly ICurrentUserService _currentUserService;
+       
         public UserController(ICurrentUserService currentUserService)
         {
             _currentUserService = currentUserService;
@@ -20,27 +22,36 @@ namespace MovieShopMVC.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Purchase()
+        [Authorize]
+        public async Task<IActionResult> Purchase(int movieId)
         {
             // purchase a movie when user clicks on Buy button on Movie Details page
-            return View();
+            var purchaseRequestModel = new PurchaseRequestModel
+            {
+                MovieId = movieId
+            };
+            // is purchased 
+            var isPurchased = await _currentUserService.IsMoviePurchased(purchaseRequestModel, _currentUserService.UserId);
+            if(isPurchased)
+                //return RedirectToAction("Purchases");
+                return RedirectToAction("Details", "Movies", new { id = movieId} );
+
+            var succeedPurchased = await _currentUserService.PurchaseMovie(purchaseRequestModel, _currentUserService.UserId);
+            if (succeedPurchased)
+                return RedirectToAction("Purchases");
+
+            return RedirectToAction("Details", "Movies");
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Favorite()
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> PurhcaseDetails(int movieId)
         {
-            // favorite a movie when user clicks on Favorite Button on Movie Details Page 
-            return View();
+            var userId = _currentUserService.UserId;
+            var purchaseDetails = await _currentUserService.GetPurchasesDetails(userId, movieId);
+            return View(purchaseDetails);
         }
-
-
-        [HttpPost]
-        public async Task<IActionResult> Review()
-        {
-            // add a new review by the user for that movie
-            return View();
-        }
-
 
         [HttpGet]
         // filters in ASP.NET
@@ -54,7 +65,7 @@ namespace MovieShopMVC.Controllers
 
             // call userservice that will give list of moviesCard models that this user purchased 
             // purchase repository, dbContext.Purchase.where(u => u.UserId == id) 
-            var movieCards = await _currentUserService.GetCurrentUserPurchasedMovies(userId);
+            var movieCards = await _currentUserService.GetAllPurchasesForUser(userId);
 
 
             // get all the movies purchased by user => list<MovieCard>
@@ -71,15 +82,30 @@ namespace MovieShopMVC.Controllers
         }
 
 
+        //[HttpGet]
+        //[Authorize]
+        //public async Task<IActionResult> Favorites(int id)
+        //{
+        //    // get all movies favorated by that user
+        //    var userId = _currentUserService.UserId;
+        //    var movieCards = await _currentUserService.GetCurrentUserFavoritedMovies(userId);
+        //    return View(movieCards);
+        //}
 
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> Favorites(int id)
+        [HttpPost]
+        public async Task<IActionResult> Favorite()
         {
-            // get all movies favorated by that user
-            var userId = _currentUserService.UserId;
-            var movieCards = await _currentUserService.GetCurrentUserFavoritedMovies(userId);
-            return View(movieCards);
+            // favorite a movie when user clicks on Favorite Button on Movie Details Page 
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Review()
+        {
+            // add a new review by the user for that movie
+            return View();
         }
 
         [HttpGet]

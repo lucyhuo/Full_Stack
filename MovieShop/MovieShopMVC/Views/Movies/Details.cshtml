@@ -3,64 +3,135 @@
 
     
 
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <img src="@Model.PosterUrl" />
-                </div>
-                <div class="col">
-                    @Model.Title<br>
-                    @foreach (var genre in Model.Genres)
-                    {
-                        @genre.Name
-                    }
+<div class="container-fluid ">
+    <div class="row bg-dark p-0">
 
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-outline-secondary">REVIEW</button><br>
-                    <button type="button" class="btn btn-light">BUY</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p4>MOVIE FACTS</p4>
-                    <ul class="list-group">
-                        <li class="list-group-item">Release Date @Model.ReleaseDate </li>
-                        <li class="list-group-item">Run Time @Model.RunTime </li>
-                        <li class="list-group-item">Box Office @Model.Revenue </li>
-                        <li class="list-group-item">Budget @Model.Budget </li>
-                        <li class="list-group-item">Vestibulum at eros</li>
-                    </ul>
-                    <p4>TRAILERS</p4>
-                    <ul class="list-group">
-                        @foreach (var trailer in Model.Trailers)
-                        {
-                        <li class="list-group-item"> <a href=@trailer.TrailerUrl/> @Model.Title </li>
-                        }
-                    </ul>
-                </div>
-                <div class="col">
-                    <ul class="list-group">
-                        @foreach (var cast in Model.Casts)
-                        {
-                            <li class="list-group-item col">
-                                <div class="col">
-                                    <img src="@cast.ProfilePath" style="width: 5%; height: 5%;" />
-                                </div>
-                                <div class="col">
-                                    @cast.Name
-                                </div>
-                                <div class="col">
-                                    @cast.Character
-                                </div>
-                            </li>
-                        }
-                    </ul>
-                </div>
-
-            </div>
+        <div class="col">
+            <img src="@Model.PosterUrl" />
         </div>
-    
+        <div class="col text-white">
+            <div>
+                <h3>@Model.Title </h3>
+                <p> @Model.Tagline </p>
+
+                @foreach (var genre in Model.Genres)
+                {
+                    <span class="badge badge-pill badge-secondary m-2 text-center">
+                        <small>@genre.Name</small>
+                    </span>
+                }
+                <span class="badge badge-success font-weight-bold">@Model.Rating</span>
+                <p ont-size="0.1em" class="card-text">@Model.Overview</p>
+            </div>
+
+
+
+        </div>
+        <div class="col">
+            <div class="btn btn-group-vertical p-2">
+                <form asp-controller="User" asp-action="Purchase" asp-route-movieId="@Model.Id" method="post">
+                    <button type="submit" class="btn btn-outline-secondary">Buy</button><br>
+                </form>
+                <form asp-controller="User" asp-action="Review" asp-route-movieId="@Model.Id" method="post">
+                    <button type="button" class="btn btn-outline-secondary">REVIEW</button><br>
+                </form>
+
+                @*<a asp-controller="User" asp-action="Purchase" asp-route-movieId="@Model.Id" class="btn btn-outline-secondary">
+            BUY
+        </a>*@
+                
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div>
+                <div>MOVIE FACTS</div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div>
+                            <i class="bi bi-calendar-week"></i> Release Date: @Model.ReleaseDate
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div>
+                            Run Time: @Model.RunTime
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div>
+                            Box Office: @Model.Revenue
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div>
+                            Budget: @Model.Budget
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div>
+                <div>TRAILERS</div>
+                <ul class="list-group">
+                    @foreach (var trailer in Model.Trailers)
+                    {
+                        <li class="list-group-item"> 
+                            <a href="@trailer.TrailerUrl"> @trailer.Name  </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            
+        </div>
+        <div class="col">
+            <div class="card ">
+                <div class="card-header">
+                    CAST
+                </div>
+
+                <table>
+                    <tbody class="border-bottom-0 p-2">
+                        @foreach (var cast in @Model.Casts)
+                        {
+                            <tr class="border-bottom">
+                                <td class="col-3 text-center">
+                                    <img class="img-fluid d-inline rounded-circle profile-image" src="@cast.ProfilePath" style="width: 15%; height: 15%;" alt="profile image">
+                                </td>
+                                <td class="col-4">@cast.Name</td>
+                                <td class="col-4">@cast.Character</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            
+
+            @*<ul class="list-group">
+            @foreach (var cast in Model.Casts)
+            {
+                <li class="list-group-item col">
+                    <div class="col">
+                        <div class="col">
+                            <img src="@cast.ProfilePath" style="width: 5%; height: 5%;" />
+                        </div>
+                        <div class="col">
+                            @cast.Name
+                        </div>
+                        <div class="col">
+                            @cast.Character
+                        </div>
+                    </div>
+
+                </li>
+            }
+        </ul>*@
+        </div>
+
+    </div>
+</div>
+
 
 
 

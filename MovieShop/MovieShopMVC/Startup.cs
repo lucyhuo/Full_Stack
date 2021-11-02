@@ -32,12 +32,14 @@ namespace MovieShopMVC
         {
             //IOC Inversion of Control, configurations are used across multiple controllers
             services.AddControllersWithViews();
+
             services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddScoped<IMovieService, MovieService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>(); // use this in the account controller 
             services.AddScoped<ICurrentUserRepository, CurrentUserRepository>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<IPurchaseRepository, PurchaseRepository>();
             services.AddHttpContextAccessor();
 
 

@@ -20,10 +20,10 @@ namespace ApplicationCore.ServiceInterfaces
         //public IEnumerable<string> Roles { get; }
         //public bool IsAdmin { get;  }
 
-        // could delete later
-        Task<List<MovieCardResponseModel>> GetCurrentUserPurchasedMovies(int id);
-        Task<List<MovieCardResponseModel>> GetCurrentUserFavoritedMovies(int id);
-        Task<List<MovieCardResponseModel>> GetCurrentUserReviewedMovies(int id);
+        
+        //Task<List<MovieCardResponseModel>> GetCurrentUserPurchasedMovies(int id);
+        //Task<List<MovieCardResponseModel>> GetCurrentUserFavoritedMovies(int id);
+        //Task<List<MovieCardResponseModel>> GetCurrentUserReviewedMovies(int id);
 
 
         Task AddFavorite(FavoriteRequestModel favoriteRequest);
