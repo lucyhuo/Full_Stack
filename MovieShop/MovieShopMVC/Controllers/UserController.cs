@@ -64,9 +64,9 @@ namespace MovieShopMVC.Controllers
 
             // call userservice that will give list of moviesCard models that this user purchased 
             // purchase repository, dbContext.Purchase.where(u => u.UserId == id) 
-            var purchaseDetails = await _currentUserService.GetAllPurchasesForUser(userId);
+            var purchaseResponse = await _currentUserService.GetAllPurchasesForUser(userId);
 
-
+            
             // get all the movies purchased by user => list<MovieCard>
 
             // get the id from HttpContext.User.Claims
@@ -77,7 +77,7 @@ namespace MovieShopMVC.Controllers
             //    return View();
             //}
             //RedirectToAction("Login", "Account");
-            return View(purchaseDetails);
+            return View(purchaseResponse);
         }
 
 
