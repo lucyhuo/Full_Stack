@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MovieCard } from '../../models/moviecard';
+// import { MovieCard } from '../../models/moviecard';
+
+
 
 @Component({
   selector: 'app-movie-card',
@@ -14,6 +17,7 @@ export class MovieCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("inside movie details component")
   }
 
 }

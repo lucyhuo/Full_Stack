@@ -6,7 +6,13 @@ import { HomeComponent } from './home/home.component';
 // specify all the routes required by the angular application 
 const routes: Routes = [
   // path/route for my home page http://localhost:4200/
-  {path:"", component: HomeComponent}
+  {path:"", component: HomeComponent},
+
+  // lazily load the modules, define main route for lazy modules 
+  {
+    path:'movies', loadChildren: () => import("./movies/movies.module").then(mod => mod.MoviesModule)
+  }
+
   // {path:"movies/:id", component: MovieDetailsComponent}
   // {path: "admin/createmovie", component: CreateMovieComponent}
 

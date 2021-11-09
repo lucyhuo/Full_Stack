@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import {Observable } from "rxjs";
 import { MovieCard } from 'src/app/shared/models/moviecard';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Movie } from 'src/app/shared/models/movie';
+
+
 
 
 
@@ -22,6 +26,16 @@ export class MovieService {
       // call our API, using HttpClient (XMLHttpRequest) to make GET request 
       // HttpClient class compes from HttpClientModule (Angular Team created for us to use)
       // import HttpClientModel inside AppModule
-      return this.http.get<MovieCard[]>("https://localhost:44332/api/Movies/toprevenue");
+      
+      // read the base API URL from the environmen file and then append the needed URL per method 
+      return this.http.get<MovieCard[]>(`${environment.apiBaseUrl}movies/toprevenue`);
   }
+
+  // localhost need to be configurable, appSetting.json 
+  // movieId should be a parameter 
+  getMovieDetails(id: number): Observable<Movie> {
+
+    return this.http.get<Movie>(`${environment.apiBaseUrl}movies/${id}`);
+  }
+
 }
