@@ -1,0 +1,13 @@
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\bin\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.deps.json
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\bin\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.dll
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\bin\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.pdb
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\bin\Debug\netcoreapp3.1\Antra.Hotel.Data.Models.dll
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\bin\Debug\netcoreapp3.1\Antra.Hotel.Data.Models.pdb
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.csproj.AssemblyReference.cache
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.AssemblyInfoInputs.cache
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.AssemblyInfo.cs
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.csproj.CopyComplete
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.dll
+C:\Users\Yanghe Huo\source\repos\HManagementSystem\Antra.Hotel.Repository\obj\Debug\netcoreapp3.1\Antra.Hotel.Data.Repository.pdb

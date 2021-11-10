@@ -1,0 +1,13 @@
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.csproj.AssemblyReference.cache
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.AssemblyInfoInputs.cache
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.AssemblyInfo.cs
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\bin\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.deps.json
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\bin\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.dll
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\bin\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.pdb
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\bin\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Model.dll
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\bin\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Model.pdb
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.csproj.CopyComplete
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.dll
+C:\Users\Yanghe Huo\source\repos\CompanyApp\Antra.CompanyApp.Data.Repository\obj\Debug\netcoreapp3.1\Antra.CompanyApp.Data.Repository.pdb
