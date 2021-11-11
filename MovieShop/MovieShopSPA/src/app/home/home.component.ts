@@ -10,9 +10,12 @@ import { MovieCard } from '../shared/models/moviecard';
 export class HomeComponent implements OnInit {
 
   mypageTile = "Movie Shop SPA";
-  // movieCards
+  
+  // display data: movieCards
+  // public property in the component will be available in the view 
   movieCards!: MovieCard[];
-
+  
+  // DI 
   constructor(private movieService: MovieService) { }
 
   ngOnInit(): void {
@@ -20,7 +23,7 @@ export class HomeComponent implements OnInit {
       // It is recommended to use this method to call the API and initialize any dat properties 
       // Will be called automatically by your angular component after calling constructor 
       
-      // only when you subscribe to the observable, you get the data 
+      // only when you subscribe to the observable, you get the data (and automatically unwrip the task)
       // Observable<MovieCard[]>
       // http://localhost:4200/ => HomeComponent 
       this.movieService.getTopRevenueMovies().subscribe(

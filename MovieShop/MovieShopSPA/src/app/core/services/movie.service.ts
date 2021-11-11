@@ -8,18 +8,18 @@ import { Movie } from 'src/app/shared/models/movie';
 
 
 
-
+// means you can inject this class to any constructor in anywhere in the application
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  // private readonly HttpClient _http;
+  // private readonly HttpClient _http; DI 
   constructor(private http: HttpClient) { }
   // http://localhost:5001/api/Movies/toprevenue
   // many methods that will be used by components 
+  
   // home component will call this function 
-
   // return type: Observable of list of MovieCard
   // in C# to do ascyn programming we return Task of list of MovieCard
   getTopRevenueMovies(): Observable<MovieCard[]>  {

@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Yanghe Huo\\.nuget\\packages\\": {}
+    "C:\\Users\\huoya\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
+      "projectUniqueName": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
       "projectName": "ApplicationCore",
-      "projectPath": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
-      "packagesPath": "C:\\Users\\Yanghe Huo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\ApplicationCore\\obj\\",
+      "projectPath": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\ApplicationCore\\ApplicationCore.csproj",
+      "packagesPath": "C:\\Users\\huoya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\ApplicationCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yanghe Huo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huoya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

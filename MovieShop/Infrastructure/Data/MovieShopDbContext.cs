@@ -36,6 +36,13 @@ namespace Infrastructure.Data
         {
             modelBuilder.Entity<Movie>(CongirueMove);
             modelBuilder.Entity<Trailer>(ConfigureTrailer);
+
+            //modelBuilder.Entity<User>().HasMany(u => u.Roles).WithMany(r => r.Users)
+            //    .UsingEntity<Dictionary<string, object>>("UserRole",
+            //        u => u.HasOne<Role>().WithMany().HasForeignKey("RoleId"),
+            //        r => r.HasOne<User>().WithMany().HasForeignKey("UserId"));
+
+
             modelBuilder.Entity<MovieGenre>(ConfigureMovieGenre);
             modelBuilder.Entity<Crew>(ConfigureCrew);
             modelBuilder.Entity<MovieCrew>(ConfigureMovieCrew);
@@ -81,13 +88,14 @@ namespace Infrastructure.Data
             builder.Property(m => m.Revenue).HasColumnType("decimal(18, 4)").HasDefaultValue(9.9m);
             builder.Property(m => m.CreatedDate).HasDefaultValueSql("getdate()");
 
-            // we wannt tell EF to ignore Rating property and not create the columns
+            //we wannt tell EF to ignore Rating property and not create the columns
             builder.Ignore(m => m.Rating);
         }
         private void ConfigureCast(EntityTypeBuilder<Cast> builder)
         {
             builder.ToTable("Cast");
             builder.HasKey(m => m.Id);
+            builder.HasIndex(c => c.Name);
             builder.Property(m => m.Name).HasMaxLength(128);
             builder.Property(m => m.ProfilePath).HasMaxLength(2084);
         }
@@ -118,6 +126,8 @@ namespace Infrastructure.Data
             builder.Property(m => m.HashedPassword).HasMaxLength(1024);
             builder.Property(m => m.Salt).HasMaxLength(1024);
             builder.Property(m => m.PhoneNumber).HasMaxLength(16);
+            builder.Property(u => u.Salt).HasMaxLength(1024);
+            builder.Property(u => u.IsLocked).HasDefaultValue(false);
         }
 
         private void ConfigurePurchase(EntityTypeBuilder<Purchase> builder)

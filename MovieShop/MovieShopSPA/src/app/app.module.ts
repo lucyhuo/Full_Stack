@@ -7,8 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './core/layout/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
-
-
+// import { MoviesModule } from './movies/movies.module';
 
 
 @NgModule({
@@ -22,8 +21,11 @@ import { MovieCardComponent } from './shared/components/movie-card/movie-card.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
+    // ,MoviesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

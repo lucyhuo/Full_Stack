@@ -7436,19 +7436,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yanghe Huo\\.nuget\\packages\\": {}
+    "C:\\Users\\huoya\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
+      "projectUniqueName": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
       "projectName": "MovieShopMVC",
-      "projectPath": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
-      "packagesPath": "C:\\Users\\Yanghe Huo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\MovieShopMVC\\obj\\",
+      "projectPath": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
+      "packagesPath": "C:\\Users\\huoya\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\MovieShopMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Yanghe Huo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huoya\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7462,8 +7462,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Yanghe Huo\\source\\repos\\MovieShop\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\huoya\\source\\repos\\Full_Stack\\MovieShop\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
@@ -7511,7 +7511,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -12,6 +12,7 @@ namespace ApplicationCore.Models
         {
             Casts = new List<CastResponseModel>();
             Genres = new List<GenreModel>();
+            Reviews = new List<UserReviewResponseModel>();
             Trailers = new List<TrailerResponseModel>();
         }
 
@@ -30,10 +31,30 @@ namespace ApplicationCore.Models
         public DateTime? ReleaseDate { get; set; }
         public int? RunTime { get; set; }
         public decimal? Price { get; set; }
+        public int FavoritesCount { get; set; }
 
 
         public List<CastResponseModel> Casts { get; set; }
         public List<GenreModel> Genres { get; set; }
         public List<TrailerResponseModel> Trailers { get; set; }
+        public List<UserReviewResponseModel> Reviews { get; set; }
+
     }
+
+    public class UserReviewResponseModel
+    {
+        public int UserId { get; set; }
+        public List<MovieReviewResponseModel> MovieReviews { get; set; }
+    }
+
+    public class MovieReviewResponseModel
+    {
+        public int UserId { get; set; }
+        public int MovieId { get; set; }
+        public string ReviewText { get; set; }
+        public decimal Rating { get; set; }
+        public string Name { get; set; }
+    }
+
+
 }

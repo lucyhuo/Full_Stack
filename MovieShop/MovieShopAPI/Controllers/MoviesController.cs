@@ -34,8 +34,23 @@ namespace MovieShopAPI.Controllers
 
         }
 
-
-
+        [HttpGet]
+        [Route("genre/{gereId:int}")]
+        // http://localhost:5001/api/movies/genre/5
+        // manny movies belonging to a genre => 
+        // pagination
+        // 2000 movies for 5 
+        // 30 movies per page =>
+        // show how many page number 
+        // 2000/30 => 67 pages 
+        public async Task<IActionResult> GetMoviesByGenres(int genreId, [FromQuery] int pagesize = 30, [FromQuery] int pageIndex = 1)
+        {
+            // 1 to 30 movies 
+            // click on page 2 => 31 to 60 
+            // click on page 3 => 61 to 90
+            // moviegenres.skip(pageindex-1).take(pagesize).tolistasync()
+            return Ok();
+        }
 
         // create the api method that shows top 30 movies, json data 
 

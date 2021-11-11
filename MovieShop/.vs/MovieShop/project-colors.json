@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a38f075c-9d66-43b1-a21a-eaa1cf72a389": {
+      "ProjectGuid": "a38f075c-9d66-43b1-a21a-eaa1cf72a389",
+      "DisplayName": "MovieShopMVC",
+      "ColorIndex": 0
+    },
+    "b8f8c04d-7c77-4230-a49f-b8d26fceae23": {
+      "ProjectGuid": "b8f8c04d-7c77-4230-a49f-b8d26fceae23",
+      "DisplayName": "Infrastructure",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
