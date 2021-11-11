@@ -1,10 +1,10 @@
-<div class="card">
-    <!-- we need to navigate to http://localhost:4200/movies/23 -->
+<div class="card mb-4">
+    <!-- we need to navigate to http://localhost:4200/movies/3 -->
     <!-- routerlink -->
-
-    <a [routerLink]="['/movies',movieCard.id]">
+    <!-- <a [routerLink]="[ '/movies', movieCard.id]">
         <img src="{{movieCard.posterUrl}}" alt="{{movieCard.title}}" class="img-fluid rounded" />
-    </a>
-
+    </a> -->
+<a [routerLink]="[ '/movies', movieCard.id ]">
+    <img src="{{movieCard.posterUrl}}" alt="{{movieCard.title}}" class="img-fluid rounded" />
+</a>
 </div>
-<!-- <img src="{{movieCard.posterUrl}}" alt="{{movieCard.title}}" class="img-fluid rounded" /> -->

@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MovieCard } from '../../models/moviecard';
-// import { MovieCard } from '../../models/moviecard';
-
-
 
 @Component({
   selector: 'app-movie-card',
@@ -11,13 +8,12 @@ import { MovieCard } from '../../models/moviecard';
 })
 export class MovieCardComponent implements OnInit {
 
-  // will receive the data from parent component through @Input 
+  // will recieve the data from parent component through @Input
 
   @Input() movieCard!: MovieCard;
   constructor() { }
 
   ngOnInit(): void {
-    console.log("inside movie details component")
   }
 
 }

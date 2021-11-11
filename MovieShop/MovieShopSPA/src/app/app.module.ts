@@ -21,7 +21,8 @@ import { MovieCardComponent } from './shared/components/movie-card/movie-card.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
-    // ,MoviesModule
+    // ,
+    // MoviesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
