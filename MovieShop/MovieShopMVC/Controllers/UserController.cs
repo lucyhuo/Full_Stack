@@ -107,11 +107,11 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Reviews(int id)
-        {
-            // get all reviews 
-            return View();
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> Reviews(int id)
+        //{
+        //    // get all reviews 
+        //    return View();
+        //}
     }
 }

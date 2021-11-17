@@ -1,0 +1,63 @@
+
+
+<div class="container">
+    <div class="row">
+        <h3>Bookings History Admin</h3>
+    </div>
+    
+<div class="row">
+<table class="table">
+    <thead>
+    <tr>
+
+      <th scope="col">Id</th>
+      <th scope="col">Email</th>
+      <th scope="col">BookingsDate</th>
+      <th scope="col">BookingsTime</th>
+      <th scope="col">FromPlace</th>
+      <th scope="col">ToPlace</th>
+      <th scope="col">Pick up address</th>
+      <th scope="col">Land Mark</th>
+      <th scope="col">Pickup Date</th>
+      <th scope="col">Pickup Time</th>
+      <th scope="col">CabTypes Id</th>
+      <th scope="col">ContactNo</th>
+      <th scope="col">Status</th>
+      <th scope="col">Comp_time</th>
+      <th scope="col">Charge</th>
+      <th scope="col">Feedback</th>
+        <th scope="col">Operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of bookings">
+      <th scope="row">{{book.id}}</th>
+   
+      <td>{{ book.email }}</td>
+      <td>{{ book.bookingDate  }}</td>
+      <td>{{ book.bookingTime  }}</td>
+      <td>{{ book.fromPlace  }}</td>
+      <td>{{ book.toPlace  }}</td>
+      <td>{{ book.pickupAddress  }}</td>
+      <td>{{ book.landmark  }}</td>
+      <td>{{ book.pickupDate  }}</td>
+      <td>{{ book.pickupTime  }}</td>
+      <td>{{ book.cabTypeId  }}</td>
+      <td>{{ book.contactNo  }}</td>
+      <td>{{ book.status  }}</td>
+      <td>{{ book.comp_Time  }}</td>
+      <td>{{ book.charge  }}</td>
+      <td>{{ book.feedback }}</td>
+      <td>
+        <div class="d-inline-block" ngbDropdown >
+            <button class="btn btn-sm btn-danger m-1" (click)="delete(book.id)">
+                Delete</button>
+
+            
+          </div>   
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+  </div>

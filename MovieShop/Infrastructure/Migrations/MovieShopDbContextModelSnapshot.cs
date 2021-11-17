@@ -385,9 +385,6 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(16)
                         .HasColumnType("nvarchar(16)");
 
-                    b.Property<string>("ProfilePictureUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Salt")
                         .HasMaxLength(1024)
                         .HasColumnType("nvarchar(1024)");

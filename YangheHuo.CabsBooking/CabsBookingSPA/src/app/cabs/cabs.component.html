@@ -1,0 +1,36 @@
+
+<div class="container">
+    <div class="row">
+        <h3>Cab Type Info</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><b>Cab Type Id: </b>{{cab.id}}</li>
+            <li class="list-group-item"><b>Cab Type Name: </b>{{cab.name}}</li>
+          </ul>
+    </div>
+
+    <div class="row">
+        <h3>Cab Booking Details</h3>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">BookingId</th>
+                <th scope="col">Email</th>
+                <th scope="col">Pickup</th>
+                <th scope="col">Destination</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let booking of cab.bookings">
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.email }}</td>
+                <td>{{ booking.fromPlace }}</td>
+                <td>{{ booking.toPlace }}</td>
+              </tr>
+            </tbody>
+          </table>
+
+    </div>
+    
+   
+</div>
+
